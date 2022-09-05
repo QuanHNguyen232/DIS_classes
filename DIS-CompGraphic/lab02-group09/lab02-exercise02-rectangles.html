@@ -10,36 +10,33 @@
     <script type="text/javascript" >
         "use strict";
 
-        class Rec {
+        class Rect {
             constructor(row, col){
-                this.row = row
-                this.col = col
+                this.row = row;
+                this.col = col;
             }
 
             drawRectangle() {
                 let ret_val = []
                 for (let i = 0; i < this.row; i++){
-                    for (let j = 0; j < this.col; j++){
-                        if (i == 0 || i == this.row-1 || j == 0 || j == this.col-1){
-                            ret_val.push("+")
-                        }
-                        else {
-                            ret_val.push("-")
-                        }
+                    for (let j = 0; j < this.col; j++) {
+                        //Check boundary
+                        const val = [0, this.row - 1].includes(i) || [0, this.col - 1].includes(j) ? "+" : "-";
+                        ret_val.push(val);
                     }
-                    ret_val.push("\n")
+                    ret_val.push("\n");
                 }
-                return ret_val.join("")
+                return ret_val.join("");
             }
 
             toString() {
-                return this.drawRectangle()
+                return this.drawRectangle();
             }
         }
 
 
-        let my_rec = new Rec(4, 10)
-        console.log(`${my_rec}`) // console.log(my_rec + '')
+        console.log(`${new Rect(2, 2)}`);
+        console.log(`${new Rect(4, 10)}`);
 
     </script>
 </body>
