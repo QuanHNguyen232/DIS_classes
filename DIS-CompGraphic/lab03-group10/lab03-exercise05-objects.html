@@ -230,26 +230,15 @@
         }
 
         const drawStrangeShape = (x, y, r1, r2) => {
-            // //mid
-            // drawCircle(-0.5, 0.3, 0.2)
-            // //right
-            // drawCircle(-0.7, 0.3, 0.1)
-            // //left
-            // drawCircle(-0.3, 0.3, 0.1)
-            // //Down
-            // drawCircle(-0.5, 0.1, 0.1)
-            // //Up
-            // drawCircle(-0.5, 0.5, 0.1)
-            
             //mid
             drawCircle(x, y - r1, r1)
             //right
             drawCircle(x - r1, y - r1, r2)
             //left
             drawCircle(x + r1, y - r1, r2)
-            //Down
+            //down
             drawCircle(x, y - 2*r1, r2)
-            //Up
+            //up
             drawCircle(x, y, r2)
         }
 
