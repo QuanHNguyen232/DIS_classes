@@ -7,7 +7,7 @@ class Quad{
     * @param {float} scale the scale of the Quad.
     * @param {array} tint the tint-color [r,g,b] of the Quad.
     */
-    constructor(offsetX, offsetY, scale, tint){
+    constructor(offsetX, offsetY, scale, tint, posArray){
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.scale = scale;
@@ -17,13 +17,8 @@ class Quad{
             0, 1, 2,
             2, 1, 3
         ];
-
-        this.positionData = [
-            -0.25, -0.25,
-            0.25, -0.25,
-            -0.25, 0.25,
-            0.25, 0.25,
-        ]
+        
+        this.positionData = posArray
 
         this.positionBuffer = gl.createBuffer()
 

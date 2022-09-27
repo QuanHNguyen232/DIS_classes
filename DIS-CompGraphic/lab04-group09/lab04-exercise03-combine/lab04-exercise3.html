@@ -97,7 +97,7 @@
         */
         function init(){
             // TODO: create triangle and quad shader programs using functions in
-            // gl-utils.js
+            // gl-utils.js  
             let quad_vertex_shader   = GLUtils.getDomShaderSrc("quad-vertexShader");
             let quad_fragment_shader = GLUtils.getDomShaderSrc("quad-fragmentShader");
             quad_shader_program = GLUtils.createShaderProgram(quad_vertex_shader,
@@ -110,10 +110,27 @@
                                     triangle_fragment_shader);
 
             objects = [
-                new Triangle(0.5,-0.25, new Array(9).fill(0.5)),
-                new Quad(0.0, -0.5, 0.5, [1,0,1]),
-                new Quad(0.0, 0.5, 0.5, [1,0.5,1]),
-                new Circle(0.5,-0.25, 0.25, [0, 0, 0], [0, 1, 0.5]),
+                new Triangle(-0.3, -0.15,
+                            [1.0, 0.95, 0.6, // left corner
+                            1.0, 0.5, 0.25,  // right corner
+                            1.0, 0.5, 0.25,]),   // top corner
+                new Quad(0.0, 0.0, 1, [0.5, 0.8, 0.9], [-1, -1,
+                                                        1, -1,
+                                                        -1, -0.5,
+                                                        1, -0.5,]), // sea
+                // boat
+                new Quad(-0.25, 0.0, 1.0, [0.4, 0.3, 0.2], [-0.5, -0.55,
+                                                        0.5, -0.55,
+                                                        -0.5, -0.45,
+                                                        0.5, -0.45,]),
+                // sun
+                new Circle(0.75,0.75, 0.25, [1, 0.7, 0], [1, 0.4, 0.3]),
+                // cloud
+                new Circle(-0.75, 0.75, 0.15, [1, 1, 1], [.5, .5, .5]),
+                new Circle(-0.6, 0.7, 0.1, [1, 1, 1], [.5, .5, .5]),
+                new Circle(-0.0, 0.7, 0.19, [1, 1, 1], [.5, .5, .5]),
+                new Circle(0.2, 0.8, 0.15, [.5, .5, .5], [1, 1, 1]),
+                
             ]
         }        
 
