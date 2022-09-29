@@ -55,7 +55,6 @@ class Circle {
 
         let color = []
         for (let i = 0; i < numOfPoints; i += 1) {
-            const [a, b, c] = begin;
             color.push(a + increaseR * i)
             color.push(b + increaseB * i)
             color.push(c + increaseG * i)
