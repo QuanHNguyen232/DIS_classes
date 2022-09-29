@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        .received,.expected,.testName,.given {
+            font-family: Monospace;
+            font-size: 15px;
+            padding: 5px;
+            display: inline-block;
+            height: 100%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .received{
+            width: 26%;
+        }
+        .testName,.expected {
+            width: 15%;
+            background-color:#aaaaaa;
+        }
+        .expected {
+            width: 26%;
+        }
+        .given {
+            width: 26%;
+            background-color:#dddddd;
+        }
+        #correct {
+            color:#008a05;
+            background-color:#87fa8b;
+        }
+        #incorrect{
+            color:#ad0000;
+            background-color:#fa8787;
+        }
+        .line{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <title>Lab 05 - Exercise 01</title>
+</head>
+<body>
+    <div id="label" width=800px style="background-color:#eeeeee;"><strong>
+        <div class="testName">Test</div>
+        <div class="given">Given Values</div>
+        <div class="expected">Expected Value</div>
+        <div class="received">Received Value</div>
+    </strong></div>
+    <hr/>
+    <div id="results" width=800px></div>
+    <script src="math2d.js"></script>
+    <script>'use strict';const _0x274607=_0x1abb;(function(_0x44a610,_0x3835d0){const _0xecd3d6=_0x1abb,_0x4fc825=_0x44a610();while(!![]){try{const _0x24f8fc=-parseInt(_0xecd3d6(0x1c8))/0x1*(-parseInt(_0xecd3d6(0x1c6))/0x2)+parseInt(_0xecd3d6(0x1b3))/0x3*(-parseInt(_0xecd3d6(0x1c5))/0x4)+parseInt(_0xecd3d6(0x1b7))/0x5+-parseInt(_0xecd3d6(0x1ba))/0x6+-parseInt(_0xecd3d6(0x1b1))/0x7+parseInt(_0xecd3d6(0x1c2))/0x8*(-parseInt(_0xecd3d6(0x1bb))/0x9)+parseInt(_0xecd3d6(0x1af))/0xa;if(_0x24f8fc===_0x3835d0)break;else _0x4fc825['push'](_0x4fc825['shift']());}catch(_0x3f4016){_0x4fc825['push'](_0x4fc825['shift']());}}}(_0x54e7,0xb667d));function _0x1abb(_0x3eab30,_0x56d3e6){const _0x54e72c=_0x54e7();return _0x1abb=function(_0x1abb39,_0x586f27){_0x1abb39=_0x1abb39-0x19d;let _0x113f13=_0x54e72c[_0x1abb39];return _0x113f13;},_0x1abb(_0x3eab30,_0x56d3e6);}Math[_0x274607(0x1bf)]=Math['PI']/0xb4;class V2Tester extends Array{get['x'](){return this[0x0];}get['y'](){return this[0x1];}set['x'](_0x376b25){this[0x0]=_0x376b25;}set['y'](_0x345f0a){this[0x1]=_0x345f0a;}static get[_0x274607(0x1be)](){return new V2Tester(0x0,0x0);}static get[_0x274607(0x1a2)](){return new V2Tester(0x1,0x0);}static get[_0x274607(0x1a0)](){return new V2Tester(-0x1,0x0);}static get['UP'](){return new V2Tester(0x0,0x1);}static get[_0x274607(0x1a8)](){return new V2Tester(0x0,-0x1);}constructor(_0x4a34f9,_0x17085c){Array['isArray'](_0x4a34f9)?super(_0x4a34f9[0x0],_0x4a34f9[0x1]):super(_0x4a34f9,_0x17085c);}[_0x274607(0x19f)](){const _0x5ac6b2=_0x274607;return Math[_0x5ac6b2(0x1ae)](this['x']*this['x']+this['y']*this['y']);}[_0x274607(0x19d)](){return this['x']*this['x']+this['y']*this['y'];}[_0x274607(0x1c3)](_0x16e4f9){const _0x1da6f1=_0x274607;let _0x3557ff=_0x16e4f9['x']-this['x'],_0x114bdf=_0x16e4f9['y']-this['y'];return Math[_0x1da6f1(0x1ae)](_0x3557ff*_0x3557ff+_0x114bdf*_0x114bdf);}[_0x274607(0x1c7)](){let _0x2718ee=this['magnitude']();return this['x']/=_0x2718ee,this['y']/=_0x2718ee,this;}[_0x274607(0x1a3)](_0x528eac,_0x55e3f4){return this['x']=_0x528eac,this['y']=_0x55e3f4,this;}['multiplyScalar'](_0x2d6274){return this['x']*=_0x2d6274,this['y']*=_0x2d6274,this;}['dot'](_0x354427){return this['x']*_0x354427['x']+this['y']*_0x354427['y'];}[_0x274607(0x1b4)](_0x5d5b2d){return this['x']+=_0x5d5b2d['x'],this['y']+=_0x5d5b2d['y'],this;}['add'](_0x18c61e,_0x589f3c){return this['x']+=_0x18c61e,this['y']+=_0x589f3c,this;}[_0x274607(0x1a7)](_0x1dab53){return this['x']-=_0x1dab53['x'],this['y']-=_0x1dab53['y'],this;}[_0x274607(0x1c1)](_0x5b4f41,_0x35456b){return this['x']-=_0x5b4f41,this['y']-=_0x35456b,this;}[_0x274607(0x1c4)](){return this['x']=-this['x'],this['y']=-this['y'],this;}[_0x274607(0x1a5)](_0x5e8824){if(!(_0x5e8824 instanceof V2Tester))return![];return this['x']===_0x5e8824['x']&&this['y']===_0x5e8824['y'];}[_0x274607(0x1bd)](){return new V2Tester(this['x'],this['y']);}[_0x274607(0x1a4)](){return new V3Tester(this['x'],this['y'],0x0);}['toFloat32'](){return new Float32Array(this);}['toString'](){return'['+super['toString']()+']';}}class V3Tester extends Array{get['x'](){return this[0x0];}get['y'](){return this[0x1];}get['z'](){return this[0x2];}set['x'](_0x4b243e){this[0x0]=_0x4b243e;}set['y'](_0x542706){this[0x1]=_0x542706;}set['z'](_0xeb00ad){this[0x2]=_0xeb00ad;}static get[_0x274607(0x1be)](){return new V3Tester(0x0,0x0,0x0);}static get[_0x274607(0x1a2)](){return new V3Tester(0x1,0x0,0x0);}static get[_0x274607(0x1a0)](){return new V3Tester(-0x1,0x0,0x0);}static get['UP'](){return new V3Tester(0x0,0x1,0x0);}static get[_0x274607(0x1a8)](){return new V3Tester(0x0,-0x1,0x0);}static get[_0x274607(0x1a9)](){return new V3Tester(0x0,0x0,0x1);}static get[_0x274607(0x1b5)](){return new V3Tester(0x0,0x0,-0x1);}constructor(_0x476dac,_0x568427,_0x5bca4f){const _0x7493e1=_0x274607;Array[_0x7493e1(0x1ac)](_0x476dac)?super(_0x476dac[0x0],_0x476dac[0x1],_0x476dac[0x2]):super(_0x476dac,_0x568427,_0x5bca4f);}[_0x274607(0x19f)](){const _0x59f1fb=_0x274607;return Math[_0x59f1fb(0x1ae)](this['x']*this['x']+this['y']*this['y']+this['z']*this['z']);}[_0x274607(0x19d)](){return this['x']*this['x']+this['y']*this['y']+this['z']*this['z'];}[_0x274607(0x1c3)](_0x21575d){const _0x15ab02=_0x274607;let _0xdd596=_0x21575d['x']-this['x'],_0x4714f5=_0x21575d['y']-this['y'],_0x244af3=_0x21575d['z']-this['z'];return Math[_0x15ab02(0x1ae)](_0xdd596*_0xdd596+_0x4714f5*_0x4714f5+_0x244af3*_0x244af3);}[_0x274607(0x1c7)](){let _0x2f12f4=this['magnitude']();return this['x']/=_0x2f12f4,this['y']/=_0x2f12f4,this['z']/=_0x2f12f4,this;}['set'](_0x4d698b,_0x4833f6,_0x488a8f){return this['x']=_0x4d698b,this['y']=_0x4833f6,this['z']=_0x488a8f,this;}['multiplyScalar'](_0x1a083a){return this['x']*=_0x1a083a,this['y']*=_0x1a083a,this['z']*=_0x1a083a,this;}['dot'](_0x42dd92){return this['x']*_0x42dd92['x']+this['y']*_0x42dd92['y']+this['z']*_0x42dd92['z'];}[_0x274607(0x1a6)](_0x5850fa){return new V3Tester(this['y']*_0x5850fa['z']-this['z']*_0x5850fa['y'],this['z']*_0x5850fa['x']-this['x']*_0x5850fa['z'],this['x']*_0x5850fa['y']-this['y']*_0x5850fa['x']);}[_0x274607(0x1b4)](_0x473b46){this['x']+=_0x473b46['x'],this['y']+=_0x473b46['y'];if(_0x473b46['z'])this['z']+=_0x473b46['z'];return this;}['add'](_0x33394c,_0x26a6ca,_0x21f671){this['x']+=_0x33394c,this['y']+=_0x26a6ca;if(_0x21f671)this['z']+=_0x21f671;return this;}[_0x274607(0x1a7)](_0x233dc1){this['x']-=_0x233dc1['x'],this['y']-=_0x233dc1['y'];if(_0x233dc1['z'])this['z']-=_0x233dc1['z'];return this;}[_0x274607(0x1c1)](_0x5e7b94,_0x982804,_0x6a5f1b){this['x']-=_0x5e7b94,this['y']-=_0x982804;if(_0x6a5f1b)this['z']-=_0x6a5f1b;return this;}[_0x274607(0x1c4)](){return this['x']=-this['x'],this['y']=-this['y'],this['z']=-this['z'],this;}[_0x274607(0x1a5)](_0x3ce567){if(!(_0x3ce567 instanceof V3Tester))return![];return this['x']===_0x3ce567['x']&&this['y']===_0x3ce567['y']&&this['z']===_0x3ce567['z'];}[_0x274607(0x1bd)](){return new V3Tester(this['x'],this['y'],this['z']);}[_0x274607(0x1a1)](){return new V2Tester(this['x'],this['y']);}[_0x274607(0x1b9)](){return new Float32Array(this);}[_0x274607(0x1b8)](){const _0x1183b2=_0x274607;return'['+super[_0x1183b2(0x1b8)]()+']';}}function _0x54e7(){const _0x5ea0e2=['determinant','multM3','isArray','scaleMatrix','sqrt','27058720MdjrES','cos','7102158mTkPHi','IDENTITY','3487059ToDxNM','addV','BACK','multV3','6938130DinMty','toString','toFloat32','7424484pkWIWP','9PaImUl','rotationMatrix','clone','ZERO','deg2rad','transpose','subtract','6328208wClGPO','distanceTo','invert','4hvzFLl','2RaVBBN','normalize','859022sUifvd','sqrMagnitude','multV2','magnitude','LEFT','toV2Tester','RIGHT','set','toV3Tester','equals','cross','subtractV','DOWN','FORWARD'];_0x54e7=function(){return _0x5ea0e2;};return _0x54e7();}class M3Tester extends Array{static get[_0x274607(0x1b2)](){return new M3Tester([0x1,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x1]);}constructor(_0x27941c){super(0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0);if(_0x27941c!==undefined)for(let _0x232534=0x0;_0x232534<0x9;_0x232534++){this[_0x232534]=_0x27941c[_0x232534];}}[_0x274607(0x1bd)](){return new M3Tester(this);}['reset'](){for(var _0xd17d7f=0x0;_0xd17d7f<0x8;_0xd17d7f++){this[_0xd17d7f]=0x0;}return this[0x0]=this[0x4]=this[0x8]=0x1,this;}['determinant'](){let _0x71485b=this[0x0],_0x5d57e1=this[0x3],_0x4d22ab=this[0x6],_0xcc9323=this[0x1],_0x440204=this[0x4],_0xe7b14c=this[0x7],_0x4833f3=this[0x2],_0x13bfa4=this[0x5],_0x31760d=this[0x8];return _0x71485b*(_0x440204*_0x31760d-_0xe7b14c*_0x13bfa4)-_0x5d57e1*(_0xcc9323*_0x31760d-_0xe7b14c*_0x4833f3)+_0x4d22ab*(_0xcc9323*_0x13bfa4-_0x440204*_0x4833f3);}[_0x274607(0x1b9)](){return new Float32Array(this);}static['translationMatrix'](_0x1c1d84,_0x1f9722){const _0x5731b5=_0x274607;let _0x556b08=M3Tester[_0x5731b5(0x1b2)];return _0x556b08[0x6]=_0x1c1d84,_0x556b08[0x7]=_0x1f9722,_0x556b08;}static[_0x274607(0x1bc)](_0x48f93a){const _0x5f376b=_0x274607;let _0x211a2b=M3Tester[_0x5f376b(0x1b2)];return _0x48f93a*=Math[_0x5f376b(0x1bf)],_0x211a2b[0x0]=Math[_0x5f376b(0x1b0)](_0x48f93a),_0x211a2b[0x1]=Math['sin'](_0x48f93a),_0x211a2b[0x3]=-Math['sin'](_0x48f93a),_0x211a2b[0x4]=Math[_0x5f376b(0x1b0)](_0x48f93a),_0x211a2b;}static[_0x274607(0x1ad)](_0x58cb5,_0x1858a9){const _0x3748b8=_0x274607;let _0x4060d0=M3Tester[_0x3748b8(0x1b2)];return _0x4060d0[0x0]=_0x58cb5,_0x4060d0[0x4]=_0x1858a9,_0x4060d0;}static[_0x274607(0x1ab)](_0xd80ed7,_0x4ede07){const _0x4bfc0f=_0x274607;let _0x4afc2d=_0xd80ed7[0x0],_0x1e9a52=_0xd80ed7[0x1],_0x25fc75=_0xd80ed7[0x2],_0x43d2b0=_0xd80ed7[0x3],_0x426381=_0xd80ed7[0x4],_0x1d10a3=_0xd80ed7[0x5],_0x3e2b29=_0xd80ed7[0x6],_0x1557f6=_0xd80ed7[0x7],_0x43bbc6=_0xd80ed7[0x8],_0x5af963=_0x4ede07[0x0],_0x742ba2=_0x4ede07[0x1],_0x228cb2=_0x4ede07[0x2],_0x31f576=_0x4ede07[0x3],_0x49ced5=_0x4ede07[0x4],_0x8b622e=_0x4ede07[0x5],_0x5e3184=_0x4ede07[0x6],_0x1a5a12=_0x4ede07[0x7],_0x35a508=_0x4ede07[0x8],_0x3d604f=M3Tester[_0x4bfc0f(0x1b2)];return _0x3d604f[0x0]=_0x4afc2d*_0x5af963+_0x43d2b0*_0x742ba2+_0x3e2b29*_0x228cb2,_0x3d604f[0x1]=_0x1e9a52*_0x5af963+_0x426381*_0x742ba2+_0x1557f6*_0x228cb2,_0x3d604f[0x2]=_0x25fc75*_0x5af963+_0x1d10a3*_0x742ba2+_0x43bbc6*_0x228cb2,_0x3d604f[0x3]=_0x4afc2d*_0x31f576+_0x43d2b0*_0x49ced5+_0x3e2b29*_0x8b622e,_0x3d604f[0x4]=_0x1e9a52*_0x31f576+_0x426381*_0x49ced5+_0x1557f6*_0x8b622e,_0x3d604f[0x5]=_0x25fc75*_0x31f576+_0x1d10a3*_0x49ced5+_0x43bbc6*_0x8b622e,_0x3d604f[0x6]=_0x4afc2d*_0x5e3184+_0x43d2b0*_0x1a5a12+_0x3e2b29*_0x35a508,_0x3d604f[0x7]=_0x1e9a52*_0x5e3184+_0x426381*_0x1a5a12+_0x1557f6*_0x35a508,_0x3d604f[0x8]=_0x25fc75*_0x5e3184+_0x1d10a3*_0x1a5a12+_0x43bbc6*_0x35a508,_0x3d604f;}static[_0x274607(0x1b6)](_0x4ca223,_0x32d415){let _0x58fd22=new V3Tester();return _0x58fd22['x']=_0x4ca223[0x0]*_0x32d415['x']+_0x4ca223[0x3]*_0x32d415['y']+_0x4ca223[0x6]*_0x32d415['z'],_0x58fd22['y']=_0x4ca223[0x1]*_0x32d415['x']+_0x4ca223[0x4]*_0x32d415['y']+_0x4ca223[0x7]*_0x32d415['z'],_0x58fd22['z']=_0x4ca223[0x2]*_0x32d415['x']+_0x4ca223[0x5]*_0x32d415['y']+_0x4ca223[0x8]*_0x32d415['z'],_0x58fd22;}static[_0x274607(0x19e)](_0x3ebbe6,_0x521d14){let _0x939dd5=new V2Tester();return _0x939dd5['x']=_0x3ebbe6[0x0]*_0x521d14['x']+_0x3ebbe6[0x3]*_0x521d14['y']+_0x3ebbe6[0x6]*0x1,_0x939dd5['y']=_0x3ebbe6[0x1]*_0x521d14['x']+_0x3ebbe6[0x4]*_0x521d14['y']+_0x3ebbe6[0x7]*0x1,_0x939dd5;}static[_0x274607(0x1c4)](_0x4c199d){const _0x3ba1a5=_0x274607;let _0x40a697=_0x4c199d[_0x3ba1a5(0x1aa)](),_0x33d0fc=new M3Tester();function _0x3ea6a2(_0x3700e6){return _0x3700e6[0x0]*_0x3700e6[0x3]-_0x3700e6[0x2]*_0x3700e6[0x1];}let _0x121179=[_0x4c199d[0x4],_0x4c199d[0x7],_0x4c199d[0x5],_0x4c199d[0x8]],_0x8bad0f=[_0x4c199d[0x1],_0x4c199d[0x7],_0x4c199d[0x2],_0x4c199d[0x8]],_0x53bd63=[_0x4c199d[0x1],_0x4c199d[0x4],_0x4c199d[0x2],_0x4c199d[0x5]],_0x4e62f7=[_0x4c199d[0x3],_0x4c199d[0x6],_0x4c199d[0x5],_0x4c199d[0x8]],_0x29b373=[_0x4c199d[0x0],_0x4c199d[0x6],_0x4c199d[0x2],_0x4c199d[0x8]],_0x281479=[_0x4c199d[0x0],_0x4c199d[0x3],_0x4c199d[0x2],_0x4c199d[0x5]],_0x4231c4=[_0x4c199d[0x3],_0x4c199d[0x6],_0x4c199d[0x4],_0x4c199d[0x7]],_0x41e4ec=[_0x4c199d[0x0],_0x4c199d[0x6],_0x4c199d[0x1],_0x4c199d[0x7]],_0x3f16d8=[_0x4c199d[0x0],_0x4c199d[0x3],_0x4c199d[0x1],_0x4c199d[0x4]];return _0x33d0fc[0x0]=_0x3ea6a2(_0x121179)/_0x40a697,_0x33d0fc[0x1]=-_0x3ea6a2(_0x8bad0f)/_0x40a697,_0x33d0fc[0x2]=_0x3ea6a2(_0x53bd63)/_0x40a697,_0x33d0fc[0x3]=-_0x3ea6a2(_0x4e62f7)/_0x40a697,_0x33d0fc[0x4]=_0x3ea6a2(_0x29b373)/_0x40a697,_0x33d0fc[0x5]=-_0x3ea6a2(_0x281479)/_0x40a697,_0x33d0fc[0x6]=_0x3ea6a2(_0x4231c4)/_0x40a697,_0x33d0fc[0x7]=-_0x3ea6a2(_0x41e4ec)/_0x40a697,_0x33d0fc[0x8]=_0x3ea6a2(_0x3f16d8)/_0x40a697,_0x33d0fc;}static[_0x274607(0x1c0)](_0x597709,_0x308b90){let _0x24b639=new M3Tester();return _0x24b639[0x1]=_0x597709[0x3],_0x24b639[0x2]=_0x597709[0x6],_0x24b639[0x3]=_0x597709[0x1],_0x24b639[0x5]=_0x597709[0x7],_0x24b639[0x6]=_0x597709[0x2],_0x24b639[0x7]=_0x597709[0x5],_0x24b639;}[_0x274607(0x1b8)](){return'['+super['toString']()+']';}}
+    </script>
+    <script type="text/javascript">
+        "use strict"; // use strict javascript compiling
+
+        var results = document.getElementById("results");
+
+        testAdditionV2();
+        testAdditionV3();
+        testSubtractionV2();
+        testSubtractionV3();
+        testScalarV2();
+        testScalarV3();
+        testDistanceV2();
+        testDistanceV3();
+        testMagnitudeV2();
+        testMagnitudeV3();
+        testNormalizeV2();
+        testNormalizeV3();
+        testDotV2();
+        testDotV3();
+        testCrossV3();
+        testEqualsV2();
+        testEqualsV3();
+
+        testResetM3();
+        testTranslationM3();
+        testRotationM3();
+        testScaleM3();
+        testMultM3();
+        testMultM3V2();
+        testMultM3V3();
+
+        testTransposeM3();
+
+        testDeterminantM3();
+        testInverseM3();
+
+        function r(range=10) {
+            let min = Math.ceil(1);
+            let max = Math.floor(range);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function pretty(a){
+            let decimals = 2;
+            if(!isNaN(a)){
+                return Number(a.toFixed(decimals));
+            }
+            for(let i = 0; i < a.length; i++){
+                a[i] = Number(a[i].toFixed(decimals));
+            }
+            return a;
+        }
+
+        function testAdditionV2(){
+            let r1 = r(); let r2 = r(); let r3 = r(); let r4 = r();
+            let vec1 = new V2(r1,r2);
+            let vec2 = new V2(r3,r4);
+            let result = vec1.clone().addV(vec2);
+            let vt1 = new V2Tester(r1,r2);
+            let vt2 = new V2Tester(r3,r4);
+            let expected = vt1.clone().addV(vt2);
+            let given = vec1 + " + " + vec2;
+            printTest("V2 Addition", given, expected, result, compareArray(expected, result));
+        }
+
+        function testAdditionV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let r4 = r(); let r5 = r(); let r6 = r();
+            let vec1 = new V3(r1,r2,r3);
+            let vec2 = new V3(r4,r5,r6);
+            let result = vec1.clone().addV(vec2);
+            let vt1 = new V3Tester(r1,r2,r3);
+            let vt2 = new V3Tester(r4,r5,r6);
+            let expected = vt1.clone().addV(vt2);
+            let given = vec1 + " + " + vec2;
+            printTest("V3 Addition", given, expected, result, compareArray(expected, result));
+        }
+
+        function testSubtractionV2(){
+            let r1 = r(); let r2 = r(); let r3 = r(); let r4 = r();
+            let vec1 = new V2(r1,r2);
+            let vec2 = new V2(r3,r4);
+            let result = vec1.clone().subtractV(vec2);
+            let vt1 = new V2Tester(r1,r2);
+            let vt2 = new V2Tester(r3,r4);
+            let expected = vt1.clone().subtractV(vt2);
+            let given = vec1 + " - " + vec2;
+            printTest("V2 Subtraction", given, expected, result, compareArray(expected, result));
+        }
+
+        function testSubtractionV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let r4 = r(); let r5 = r(); let r6 = r();
+            let vec1 = new V3(r1,r2,r3);
+            let vec2 = new V3(r4,r5,r6);
+            let result = vec1.clone().subtractV(vec2);
+            let vt1 = new V3Tester(r1,r2,r3);
+            let vt2 = new V3Tester(r4,r5,r6);
+            let expected = vt1.clone().subtractV(vt2);
+            let given = vec1 + " - " + vec2;
+            printTest("V3 Subtraction", given, expected, result, compareArray(expected, result));
+        }
+
+        function testScalarV2(){
+            let r1 = r(); let r2 = r(); let r3 = 1;
+            while (r3 == 1){
+                r3 = r();
+            }
+            let vec1 = new V2(r1,r2);
+            let result = vec1.clone().multiplyScalar(r3);
+            let vt1 = new V2Tester(r1,r2);
+            let expected = vt1.clone().multiplyScalar(r3);
+            let given = vec1 + " * " + r3;
+            printTest("V2 Scalar Mutl.", given, expected, result, compareArray(expected, result));
+        }
+
+        function testScalarV3(){
+            let r1 = r(); let r2 = r(); let r3 = r(); let r4 = 1;
+            while (r4 == 1){
+                r4 = r();
+            }
+            let vec1 = new V3(r1,r2,r3);
+            let result = vec1.clone().multiplyScalar(r4);
+            let vt1 = new V3Tester(r1,r2,r3);
+            let expected = vt1.clone().multiplyScalar(r4);
+            let given = vec1 + " * " + r4;
+            printTest("V3 Scalar Mutl.", given, expected, result, compareArray(expected, result));
+        }
+
+        function testDistanceV2(){
+            let r1 = r(); let r2 = r(); let r3 = r(); let r4 = r();
+            while (r1 == r3){
+                r3 = r();
+            }
+            let vec1 = new V2(r1,r2);
+            let vec2 = new V2(r3,r4);
+            let result = pretty(vec1.distanceTo(vec2));
+            let vt1 = new V2Tester(r1,r2);
+            let vt2 = new V2Tester(r3,r4);
+            let expected = pretty(vt1.distanceTo(vt2));
+            let given = vec1 + " distance " + vec2;
+            printTest("V2 Distance", given, expected, result, result==expected);
+        }
+
+        function testDistanceV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let r4 = r(); let r5 = r(); let r6 = r();
+            while (r1 == r4){
+                r4 = r();
+            }
+            let vec1 = new V3(r1,r2,r3);
+            let vec2 = new V3(r4,r5,r6);
+            let result = pretty(vec1.distanceTo(vec2));
+            let vt1 = new V3Tester(r1,r2,r3);
+            let vt2 = new V3Tester(r4,r5,r6);
+            let expected = pretty(vt1.distanceTo(vt2));
+            let given = vec1 + " distance " + vec2;
+            printTest("V3 Distance", given, expected, result, result==expected);
+        }
+
+        function testMagnitudeV2(){
+            let r1 = r(); let r2 = r();
+            let vec1 = new V2(r1,r2);
+            let result = pretty(vec1.magnitude());
+            let vt1 = new V2Tester(r1,r2);
+            let expected = pretty(vt1.magnitude());
+            let given = "||" + vec1 + "||";
+            printTest("V2 Magnitude (Example)", given, expected, result, result==expected);
+        }
+
+        function testMagnitudeV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let vec1 = new V3(r1,r2,r3);
+            let result = pretty(vec1.magnitude());
+            let vt1 = new V3Tester(r1,r2,r3);
+            let expected = pretty(vt1.magnitude());
+            let given = "||" + vec1 + "||";
+            printTest("V3 Magnitude", given, expected, result, result==expected);
+        }
+
+        function testNormalizeV2(){
+            let r1 = r(); let r2 = r();
+            let vec1 = new V2(r1,r2);
+            let result = vec1.clone().normalize();
+            let vt1 = new V2Tester(r1,r2);
+            let expected = vt1.clone().normalize();
+            result = pretty(result);
+            expected = pretty(expected);
+            vec1 = pretty(vec1);
+            let given = vec1.toString();
+            printTest("V2 Normalize", given, expected, result, compareArray(expected, result));
+        }
+
+        function testNormalizeV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let vec1 = new V3(r1,r2,r3);
+            let result = vec1.clone().normalize();
+            let vt1 = new V3Tester(r1,r2,r3);
+            let expected = vt1.clone().normalize();
+            result = pretty(result);
+            expected = pretty(expected);
+            vec1 = pretty(vec1);
+            let given = vec1.toString();
+            printTest("V3 Normalize", given, expected, result, compareArray(expected, result));
+        }
+
+        function testDotV2(){
+            let r1 = r(); let r2 = r(); let r3 = r(); let r4 = r();
+            let vec1 = new V2(r1,r2);
+            let vec2 = new V2(r3,r4);
+            let result = pretty(vec1.dot(vec2));
+            let vt1 = new V2Tester(r1,r2);
+            let vt2 = new V2Tester(r3,r4);
+            let expected = pretty(vt1.dot(vt2));
+            let given = vec1 + " • " + vec2;
+            printTest("V2 Dot", given, expected, result, result == expected);
+        }
+
+        function testDotV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let r4 = r(); let r5 = r(); let r6 = r();
+            let vec1 = new V3(r1,r2,r3);
+            let vec2 = new V3(r4,r5,r6);
+            let result = pretty(vec1.dot(vec2));
+            let vt1 = new V3Tester(r1,r2,r3);
+            let vt2 = new V3Tester(r4,r5,r6);
+            let expected = pretty(vt1.dot(vt2));
+            let given = vec1 + " • " + vec2;
+            printTest("V3 Dot", given, expected, result, result == expected);
+        }
+
+        function testCrossV3(){
+            let r1 = r(); let r2 = r(); let r3 = r();
+            let r4 = r(); let r5 = r(); let r6 = r();
+            let vec1 = new V3(r1,r2,r3);
+            let vec2 = new V3(r4,r5,r6);
+            let result = vec1.cross(vec2);
+            let vt1 = new V3Tester(r1,r2,r3);
+            let vt2 = new V3Tester(r4,r5,r6);
+            let expected = vt1.cross(vt2);
+            result = pretty(result);
+            expected = pretty(expected);
+            let given = vec1 + " X " + vec2;
+            printTest("V3 Cross", given, expected, result, compareArray(expected, result));
+        }
+
+        function testEqualsV2(){
+            let r1 = r(100); let r2 = r(100); let r3 = r(100); let r4 = r(100);
+            let vec1 = new V2(r1,r2);
+            let vec2 = new V2(r3,r4);
+            let vec3 = new V2(r1,r2);
+            let given1 = vec1 + " = " + vec2;
+            let given2 = vec1 + " = " + vec3;
+            printTest("V2 Equal Negative", given1, false, vec1.equals(vec2), vec1.equals(vec2)===false);
+            printTest("V2 Equal Positive", given2, true, vec1.equals(vec3), vec1.equals(vec3)===true);
+        }
+
+        function testEqualsV3(){
+            let r1 = r(100); let r2 = r(100); let r3 = r(100);
+            let r4 = r(100); let r5 = r(100); let r6 = r(100);
+            let vec1 = new V3(r1,r2,r3);
+            let vec2 = new V3(r4,r5,r6);
+            let vec3 = new V3(r1,r2,r3);
+            let given1 = vec1 + " = " + vec2;
+            let given2 = vec1 + " = " + vec3;
+            printTest("V3 Equal Negative", given1, false, vec1.equals(vec2), vec1.equals(vec2)===false);
+            printTest("V3 Equal Positive", given2, true, vec1.equals(vec3), vec1.equals(vec3)===true);
+        }
+
+        function testTransposeM3(){
+            let r0 = r(); let r3 = r(); let r6 = r();
+            let r1 = r(); let r4 = r(); let r7 = r();
+            let r2 = r(); let r5 = r(); let r8 = r();
+            let mat = new M3([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let result = M3.transpose(mat);
+            let tmat = new M3Tester([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let expected = M3Tester.transpose(tmat);
+            let given = mat;
+            printTest("M3 Transpose", given, expected, result, compareArray(expected, result));
+        }
+
+        function testResetM3(){
+            let r0 = r(); let r3 = r(); let r6 = r();
+            let r1 = r(); let r4 = r(); let r7 = r();
+            let r2 = r(); let r5 = r(); let r8 = r();
+            let mat = new M3([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let result = mat.clone().reset();
+            let tmat = new M3Tester([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let expected = tmat.clone().reset();
+            let given = mat;
+            printTest("M3 Reset", given, expected, result, compareArray(expected, result));
+        }
+
+        function testTranslationM3(){
+            let r1 = r(); let r2 = r();
+            let mat = M3.translationMatrix(r1,r2);
+            let result = mat;
+            let expected = new M3Tester([1,0,0,0,1,0,r1,r2,1]);
+            let given = new V2(r1,r2);
+            printTest("M3 Translation (Example)", given, expected, result, compareArray(expected, result));
+        }
+
+        function testRotationM3(){
+            let r1 = r() * 30;
+            let mat = M3.rotationMatrix(r1);
+            let result = mat;
+            let expected = M3Tester.rotationMatrix(r1);
+            let given = r1 + " degrees";
+            result = pretty(result);
+            expected = pretty(expected);
+            printTest("M3 Rotation", given, expected, result, compareArray(expected, result));
+        }
+
+        function testScaleM3(){
+            let r1 = r(); let r2 = r();
+            let mat = M3.scaleMatrix(r1, r2);
+            let result = mat;
+            let expected = M3Tester.scaleMatrix(r1, r2);
+            let given = new V2(r1, r2);
+            result = pretty(result);
+            expected = pretty(expected);
+            printTest("M3 Scale", given, expected, result, compareArray(expected, result));
+        }
+
+        function testMultM3(){
+            let ra0 = r(); let ra3 = r(); let ra6 = r();
+            let ra1 = r(); let ra4 = r(); let ra7 = r();
+            let ra2 = r(); let ra5 = r(); let ra8 = r();
+
+            let rb0 = r(); let rb3 = r(); let rb6 = r();
+            let rb1 = r(); let rb4 = r(); let rb7 = r();
+            let rb2 = r(); let rb5 = r(); let rb8 = r();
+
+            let mata = new M3([ra0,ra1,ra2,ra3,ra4,ra5,ra6,ra7,ra8]);
+            let matb = new M3([rb0,rb1,rb2,rb3,rb4,rb5,rb6,rb7,rb8]);
+            let result = M3.multM3(mata, matb);
+
+            let tmata = new M3Tester([ra0,ra1,ra2,ra3,ra4,ra5,ra6,ra7,ra8]);
+            let tmatb = new M3Tester([rb0,rb1,rb2,rb3,rb4,rb5,rb6,rb7,rb8]);
+            let expected = M3Tester.multM3(tmata, tmatb);
+
+            result = pretty(result);
+            expected = pretty(expected);
+            let given = mata + "*" + matb;
+            printTest("M3 Multiply MxM", given, expected, result, compareArray(expected, result));
+        }
+
+        function testMultM3V3(){
+            let ra0 = r(); let ra3 = r(); let ra6 = r();
+            let ra1 = r(); let ra4 = r(); let ra7 = r();
+            let ra2 = r(); let ra5 = r(); let ra8 = r();
+
+            let rb0 = r(); let rb1 = r(); let rb2 = r();
+
+            let mat = new M3([ra0,ra1,ra2,ra3,ra4,ra5,ra6,ra7,ra8]);
+            let vec = new V3(rb0,rb1,rb2);
+            let result = M3.multV3(mat, vec);
+
+            let tmat = new M3Tester([ra0,ra1,ra2,ra3,ra4,ra5,ra6,ra7,ra8]);
+            let tvec = new V3Tester(rb0,rb1,rb2);
+            let expected = M3Tester.multV3(tmat, tvec);
+
+            result = pretty(result);
+            expected = pretty(expected);
+
+            let given = mat + "*" + vec;
+            printTest("M3 Multiply MxV3", given, expected, result, compareArray(expected, result));
+        }
+
+        function testMultM3V2(){
+            let ra0 = r(); let ra3 = r(); let ra6 = r();
+            let ra1 = r(); let ra4 = r(); let ra7 = r();
+            let ra2 = r(); let ra5 = r(); let ra8 = r();
+
+            let rb0 = r(); let rb1 = r(); let rb2 = r();
+
+            let mat = new M3([ra0,ra1,ra2,ra3,ra4,ra5,ra6,ra7,ra8]);
+            let vec = new V2(rb0,rb1);
+            let result = M3.multV2(mat, vec);
+
+            let tmat = new M3Tester([ra0,ra1,ra2,ra3,ra4,ra5,ra6,ra7,ra8]);
+            let tvec = new V2Tester(rb0,rb1);
+            let expected = M3Tester.multV2(tmat, tvec);
+
+            result = pretty(result);
+            expected = pretty(expected);
+
+            let given = mat + "*" + vec;
+            printTest("M3 Multiply MxV2", given, expected, result, compareArray(expected, result));
+        }
+
+        function testDeterminantM3(){
+            let r0 = r(); let r3 = r(); let r6 = r();
+            let r1 = r(); let r4 = r(); let r7 = r();
+            let r2 = r(); let r5 = r(); let r8 = r();
+            let mat = new M3([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let result = mat.determinant();
+            let tmat = new M3Tester([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let expected = tmat.determinant();
+            let given = mat;
+            printTest("M3 Determinant", given, expected, result, result == expected);
+        }
+
+        function testInverseM3(){
+            let r0 = r(); let r3 = r(); let r6 = r();
+            let r1 = r(); let r4 = r(); let r7 = r();
+            let r2 = r(); let r5 = r(); let r8 = r();
+            let mat = new M3([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let result = M3.invert(mat);
+            let tmat = new M3Tester([r0,r1,r2,r3,r4,r5,r6,r7,r8]);
+            let expected = M3Tester.invert(tmat);
+            result = pretty(result);
+            expected = pretty(expected);
+            let given = mat;
+            printTest("M3 Inverse", given, expected, result, compareArray(expected, result));
+        }
+
+        function compareArray(a1, a2){
+            if(a1.length != a2.length) return false;
+            for(let i = 0; i < a1.length; i++){
+                if(isNaN(a1[i])||isNaN(a2[i])){
+                    return false;
+                }
+                if(Math.abs(a1[i] - a2[i]) > Number.EPSILON){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function printTest(name, given, expected, recieved, correct){
+            let cc = correct ? "correct" : "incorrect";
+            results.innerHTML +=
+            '<div class="line">' +
+                '<div class="testName">' + name + '</div>' +
+                '<div class="given">' + given + '</div>' +
+                '<div class="expected">' + expected + '</div>' +
+                '<div class="received" id="' + cc + '"> ' + recieved + '</div>'+
+            '</div>';
+        }
+
+    </script>
+</body>
+</html>
