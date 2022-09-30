@@ -58,7 +58,6 @@ class V2 extends Array{
     */
     magnitude(){
         // this method is already completed as an example.
-
         let magnitude = Math.sqrt(this.x * this.x + this.y * this.y);
         return magnitude;
     }
@@ -69,10 +68,9 @@ class V2 extends Array{
     */
     distanceTo(v){
         // TODO: Complete this method
-        diff_x = v.x - this.x 
-        diff_y = v.y - this.y
-
-        return Math.sqrt(diff_x * diff_x + diff_y * diff_y);
+        let diff_x = this.x - v.x
+        let diff_y = this.y - v.y
+        return Math.sqrt(diff_x*diff_x + diff_y*diff_y);
     }
 
     /** normalizes this vector.
@@ -80,8 +78,7 @@ class V2 extends Array{
     */
     normalize(){
         // TODO: Complete this method
-        this.x = thix.x / this.magnitude();
-        this.y = thiy.y / this.magnitude();
+        this.multiplyScalar(1/this.magnitude())
         return this;
     }
 
@@ -92,8 +89,8 @@ class V2 extends Array{
     */
     set(x, y){
         // TODO: Complete this method
-        this.x = x;
-        this.y = y;
+        this.x = x
+        this.y = y
         return this;
     }
 
@@ -114,7 +111,7 @@ class V2 extends Array{
     */
     dot(v){
         // TODO: Complete this method
-        return this.x * v.x + this.y * v.y;
+        return this.x*v.x + this.y*v.y;
     }
 
     /** adds another vector v on top of this vector.
@@ -123,7 +120,7 @@ class V2 extends Array{
     */
     addV(v){
         // TODO: Complete this method
-        this.add(v.x, v.y)
+        this.add(v.x, v.y);
         return this;
     }
 
@@ -134,8 +131,8 @@ class V2 extends Array{
     */
     add(x, y){
         // TODO: Complete this method
-        this.x += x
-        this.y += y
+        this.x += x;
+        this.y += y;
         return this;
     }
 
@@ -166,9 +163,7 @@ class V2 extends Array{
     */
     invert(){
         // TODO: Complete this method
-        this.x *= -1;
-        this.y *= -1;
-        return this;
+        return [this];
     }
 
     /** checks if all values of this vector are equal to the respective values of
@@ -178,7 +173,12 @@ class V2 extends Array{
     */
     equals(v){
         // TODO: Complete this method (must return bool)
-        return this.x == v.x && this.y == v.y;
+        for (let i=0; i < this.length; i++){
+            if (this[i] != v[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /** make a new object, that is an exact copy of this one.
@@ -236,7 +236,8 @@ class V3 extends Array{
     */
     magnitude(){
         // TODO: Complete this method
-        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+        let magnitude = Math.sqrt(this.x*this.x + this.y*this.y + this.z*this.z);
+        return magnitude;
     }
 
     /** returns the distance from this point to the given point v.
@@ -245,10 +246,10 @@ class V3 extends Array{
     */
     distanceTo(v){
         // TODO: Complete this method
-        d_x = this.x - v.x;
-        d_y = this.y - v.y;
-        d_z = this.z - v.z;
-        return Math.sqrt(d_x * d_x + d_y * d_y + d_z * d_z);
+        let diff_x = this.x - v.x;
+        let diff_y = this.y - v.y;
+        let diff_z = this.z - v.z;
+        return Math.sqrt(diff_x*diff_x + diff_y*diff_y + diff_z*diff_z);;
     }
 
     /** normalizes this vector.
@@ -256,9 +257,7 @@ class V3 extends Array{
     */
     normalize(){
         // TODO: Complete this method
-        this.x /= this.magnitude()
-        this.y /= this.magnitude()
-        this.z /= this.magnitude()
+        this.multiplyScalar(1/this.magnitude())
         return this;
     }
 
@@ -294,7 +293,7 @@ class V3 extends Array{
     */
     dot(v){
         // TODO: Complete this method
-        return this.x * v.x + this.y * v.y + this.z * v.z;
+        return this.x*v.x + this.y*v.y + this.z*v.z;
     }
 
     /** calculates and returns the cross product between this vector and the vector v (this X v).
@@ -304,9 +303,9 @@ class V3 extends Array{
     cross(v){
         // TODO: Complete this method
         let result = new V3();
-        result.x = this.y * v.z - this.z * v.y
-        result.y = this.z * v.x - this.x * v.z
-        result.z = this.x * v.y - this.y * v.x
+        result.x = this.y * v.z - this.z * v.y;
+        result.y = this.z * v.x - this.x * v.z;
+        result.z = this.x * v.y - this.y * v.x;
         return result;
     }
 
@@ -316,7 +315,7 @@ class V3 extends Array{
     */
     addV(v){
         // TODO: Complete this method
-        this.add(v.x, v.y, v.z)
+        this.add(v.x, v.y, v.z);
         return this;
     }
 
@@ -363,10 +362,7 @@ class V3 extends Array{
     */
     invert(){
         // TODO: Complete this method
-        this.x *= -1;
-        this.y *= -1;
-        this.z *= -1;
-        return this;
+        return [this];
     }
 
     /** checks if all values of this vector are equal to the respective values of
@@ -376,7 +372,12 @@ class V3 extends Array{
     */
     equals(v){
         // TODO: Complete this method (must return bool)
-        return this.x == v.x && this.y == v.y && this.z == v.z;
+        for (let i=0; i < this.length; i++){
+            if (this[i] != v[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
     /** make a new object, that is an exact copy of this one.
@@ -446,6 +447,10 @@ class M3 extends Array{
     */
 	reset(){
         // TODO: Complete this method
+        let tmp = M3.IDENTITY;
+        for (let i=-0; i<this.length; i++){
+            this[i] = tmp[i];
+        }
 		return this;
 	}
 
@@ -454,8 +459,34 @@ class M3 extends Array{
     */
     determinant(){
         // TODO: Complete this method (ONLY FOR BONUS OBJECTIVE)
-        return 0;
+        let result = 0; 
+        let tmp=this.determinant_helper();
+        
+        result += this[0]*tmp[0];
+        result -= this[1]*tmp[1];
+        result += this[2]*tmp[2];
+        
+        return result;
     }
+
+    /** reset data back to identity.
+    * @return {M3} this matrix to chain up commands.
+    */
+    determinant_helper(){
+        let result = new M3()
+        result[0] = this[4]*this[8] - this[5]*this[7];
+        result[1] = this[3]*this[8] - this[5]*this[6];
+        result[2] = this[3]*this[7] - this[4]*this[6];
+
+        result[3] = this[1]*this[8] - this[2]*this[7];
+        result[4] = this[0]*this[8] - this[2]*this[6];
+        result[5] = this[0]*this[7] - this[1]*this[6];
+
+        result[6] = this[1]*this[5] - this[2]*this[4];
+        result[7] = this[0]*this[5] - this[2]*this[3];
+        result[8] = this[0]*this[4] - this[1]*this[3];
+        return result;
+   }
 
     toFloat32(){ return new Float32Array(this);}
 
@@ -521,6 +552,8 @@ class M3 extends Array{
     static scaleMatrix(x, y){
         let result = M3.IDENTITY;
         // TODO: Complete this method
+        result[0] = x;
+        result[4] = y;
         return result;
     }
 
@@ -533,6 +566,15 @@ class M3 extends Array{
     static multM3(a, b){
         let result = M3.IDENTITY;
         // TODO: Complete this method
+        for (let i=0; i<3; i++){
+            let idx_b = 3*i;
+            let tmp_b = new V3(b[idx_b], b[idx_b+1], b[idx_b+2]);
+            for (let j=0; j<3; j++){
+                let tmp_a = new V3(a[j], a[j+3], a[j+6]);
+                result[j + idx_b] = tmp_a.dot(tmp_b);
+            }
+        }
+        
         return result;
     }
 
@@ -545,6 +587,12 @@ class M3 extends Array{
     static multV3(m, v){
         let result = new V3();
         // TODO: Complete this method
+        for (let i=0; i<v.length; i++){
+            for (let j=0; j<v.length; j++){
+                let idx = 3*j + i;
+                result[i] += m[idx]*v[j];
+            }
+        }
         return result;
     }
 
@@ -561,17 +609,68 @@ class M3 extends Array{
         // assuming that the z component of the vector is 1.
         let result = new V2();
         // TODO: Complete this method
+
+        let tmp = new V3(v[0], v[1], 1);
+        let tmp_result = new V3();
+        for (let i=0; i<tmp.length; i++){
+            for (let j=0; j<tmp.length; j++){
+                tmp_result[i] += m[3*j + i]*tmp[j];
+            }
+        }
+        
+        result[0] = tmp_result[0];
+        result[1] = tmp_result[1];
+
         return result;
     }
+
+    /**
+     * @param {M3} m the matrix to be scaled
+     * @param {number} scalar 
+     * @returns {M3} a new matrix with the resulting scaled values.
+     */
+    static multiplyScalar(m, scalar){
+        let result = new M3();
+        for (let i=0; i<m.length; i++){
+            result[i] = m[i] * scalar;
+        }
+        return result;
+   }
+
+    /** Element-wise multiplication
+     * @param {M3} a the matrix to use as multiplicand
+     * @param {M3} b the matrix to use as multiplier
+     * @returns {M3} a new Matrix object with the resulting matrix
+     */
+    static elementMult(a, b){
+        let result = new M3();
+        for (let i=0; i<result.length; i++){
+            result[i] = a[i] * b[i];
+        }
+        return result;
+   }
 
     /** Inverts the given matrix m.
     * @param {M3} m the matrix to be inverted.
     * @return {M3} a new matrix with the resulting inverted values.
     */
-    static invert(m){
+    static invert(m){   // https://www.wikihow.com/Find-the-Inverse-of-a-3x3-Matrix
         let result = new M3();
         // TODO: Complete this method (ONLY FOR BONUS OBJECTIVE)
-        return result;
+        let det = m.determinant();
+        if (det==0){
+            throw new Error("cannot invert (determinant = 0)");
+        }
+        let m_T = M3.transpose(m);
+        let m_T_det = m_T.determinant_helper();
+        
+        let arr = []
+        for (let i=2; i<(2+9); i++){ arr.push(Math.pow(-1, i)); }
+        let tmp_arr = new M3(arr);
+
+        let m_adj = M3.elementMult(m_T_det, tmp_arr);
+
+        return M3.multiplyScalar(m_adj, 1/det);
     }
 
     /** Transposes the given matrix m.
@@ -581,6 +680,18 @@ class M3 extends Array{
     static transpose(m){
         let result = new M3();
         // TODO: Complete this method
+        result[0] = m[0];
+        result[4] = m[4];
+        result[8] = m[8];
+
+        result[3] = m[1];
+        result[1] = m[3];
+
+        result[6] = m[2];
+        result[2] = m[6];
+
+        result[5] = m[7];
+        result[7] = m[5];
         return result;
     }
 
