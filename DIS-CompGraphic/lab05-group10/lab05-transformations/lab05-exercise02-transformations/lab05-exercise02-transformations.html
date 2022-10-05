@@ -5,10 +5,12 @@
     <title>Lab 05 - Exercise 02</title>
     <script type="vertex-shader" id="vertexShader">
         attribute vec2 a_position;
+        uniform mat3 u_matrixM;
+
         // TODO: Add model matrix uniform
         void main() {
             // TODO: use model matrix to calculate final position on the screen
-            vec3 pos = vec3(a_position, 1);
+            vec3 pos = u_matrixM * vec3(a_position, 1);
         	gl_Position = vec4(pos, 1);
         }
     </script>
