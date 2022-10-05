@@ -69,6 +69,9 @@ class ModelTransform{
         // TODO: complete function
         //update the modelMatrix of this quad using its position, rotaton and scale
         //use the respective functions in your math library to achieve this.
+        const translationMat = M3.translationMatrix(this.position.x, this.position.y);
+        const rotationMat    = M3.rotationMatrix(this.rotation);
+        const scaleMat = M3.scaleMatrix(this.scale);
 
         //Hints:
         // the correct order for multiplications is translation * rotation * scale (since you want the scale
