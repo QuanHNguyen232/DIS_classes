@@ -547,8 +547,7 @@ class M3 extends Array{
         result[1] = Math.sin(theta);
         result[3] = Math.sin(theta)*(-1);
         result[4] = Math.cos(theta);
-
-        return result
+        return result;
     }
 
     /** Creates a new transformation matrix that scales by x, y.
