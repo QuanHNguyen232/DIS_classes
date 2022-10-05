@@ -81,6 +81,7 @@ class ModelTransform{
 
         // To make sure each matrix applies correctly try them first individually and observe how they affect the model.
         // Start ONLY with Translation
+        this.modelMatrix = M3.multM3(M3.translationMatrix(2, 2), this.modelMatrix)
         // then  ONLY Translation and Rotation
         // then  ONLY Translation and Scale
         // and last ALL combined
