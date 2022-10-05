@@ -541,12 +541,6 @@ class M3 extends Array{
     static rotationMatrix(angle){
         let result = M3.IDENTITY;
         // TODO: Complete this method
-        angle = angle%360;
-        let theta = angle * Math.deg2rad;
-        result[0] = Math.cos(theta);
-        result[1] = Math.sin(theta);
-        result[3] = Math.sin(theta)*(-1);
-        result[4] = Math.cos(theta);
         return result;
     }
 
